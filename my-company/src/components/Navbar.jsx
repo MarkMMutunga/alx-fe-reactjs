@@ -4,47 +4,33 @@ function Navbar() {
   return (
     <nav style={{
       backgroundColor: '#333',
-      padding: '1rem',
-      marginBottom: '20px'
+      padding: '1rem'
     }}>
       <div style={{
         display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        maxWidth: '1200px',
-        margin: '0 auto'
+        justifyContent: 'space-around',
+        alignItems: 'center'
       }}>
-        <h2 style={{ color: 'white', margin: 0 }}>Our Company</h2>
-        <div style={{ display: 'flex', gap: '20px' }}>
-          <Link to="/" style={{
-            color: 'white',
-            textDecoration: 'none',
-            padding: '10px 15px',
-            borderRadius: '5px',
-            transition: 'background-color 0.3s'
-          }}>Home</Link>
-          <Link to="/about" style={{
-            color: 'white',
-            textDecoration: 'none',
-            padding: '10px 15px',
-            borderRadius: '5px',
-            transition: 'background-color 0.3s'
-          }}>About</Link>
-          <Link to="/services" style={{
-            color: 'white',
-            textDecoration: 'none',
-            padding: '10px 15px',
-            borderRadius: '5px',
-            transition: 'background-color 0.3s'
-          }}>Services</Link>
-          <Link to="/contact" style={{
-            color: 'white',
-            textDecoration: 'none',
-            padding: '10px 15px',
-            borderRadius: '5px',
-            transition: 'background-color 0.3s'
-          }}>Contact</Link>
-        </div>
+        <Link to="/" style={{
+          color: 'white',
+          textDecoration: 'none',
+          padding: '10px 15px'
+        }}>Home</Link>
+        <Link to="/about" style={{
+          color: 'white',
+          textDecoration: 'none',
+          padding: '10px 15px'
+        }}>About</Link>
+        <Link to="/services" style={{
+          color: 'white',
+          textDecoration: 'none',
+          padding: '10px 15px'
+        }}>Services</Link>
+        <Link to="/contact" style={{
+          color: 'white',
+          textDecoration: 'none',
+          padding: '10px 15px'
+        }}>Contact</Link>
       </div>
     </nav>
   );
