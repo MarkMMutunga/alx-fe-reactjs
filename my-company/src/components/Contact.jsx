@@ -23,7 +23,7 @@ function Contact() {
         <input
           type="text"
           name="name"
-          placeholder="Mark Mutunga"
+          placeholder="Your Name"
           value={formData.name}
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
@@ -31,14 +31,14 @@ function Contact() {
         <input
           type="email"
           name="email"
-          placeholder="markmutunga03@gmail.com"
+          placeholder="Your Email"
           value={formData.email}
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}
         />
         <textarea
           name="message"
-          placeholder="Hello, I would like to know more about your services."
+          placeholder="Your Message"
           value={formData.message}
           onChange={handleChange}
           style={{ display: 'block', margin: '10px 0' }}

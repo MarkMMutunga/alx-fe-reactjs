@@ -33,9 +33,9 @@ function Footer() {
         <div>
           <h3 style={{ marginBottom: '15px', color: '#fff' }}>Contact Info</h3>
           <div style={{ color: '#ccc', lineHeight: '1.6' }}>
-            <p>📧 info@ourcompany.com</p>
-            <p>📞 +1 (555) 123-4567</p>
-            <p>📍 123 Business Ave, Suite 100</p>
+            <p>📧 markmutunga03@gmail.com</p>
+            <p>📞 +254707678643</p>
+            <p>📍 Lavington Juction</p>
           </div>
         </div>
       </div>
@@ -45,7 +45,7 @@ function Footer() {
         fontSize: '14px',
         color: '#ccc'
       }}>
-        <p>&copy; 2024 Our Company. All rights reserved. | Designed with ❤️</p>
+        <p>&copy; 2025 Our Company. All rights reserved. | Designed with ❤️</p>
       </div>
     </footer>
   );
