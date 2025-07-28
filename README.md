@@ -34,10 +34,23 @@ A comprehensive collection of React projects developed as part of the ALX Softwa
 - Professional styling and responsive design
 - Components: Home, About, Services, Contact, Navbar, Footer
 
+### 5. recipe-sharing-app
+**Advanced Recipe Sharing Application with Zustand**
+- Full-featured recipe management platform
+- Zustand state management implementation
+- Advanced search and filtering capabilities
+- User favorites and personalized recommendations
+- Complete CRUD operations (Create, Read, Update, Delete)
+- React Router for seamless navigation
+- Real-time search across recipe titles and descriptions
+- Smart recommendation algorithm based on user preferences
+- Professional UI with responsive design
+
 ## 🛠️ Technologies Used
 
-- **React** ^18.2.0 - Frontend framework
-- **React Router DOM** ^6.8.1 - Client-side routing
+- **React** ^18.2.0 / ^19.1.0 - Frontend framework
+- **React Router DOM** ^6.8.1 / ^7.7.0 - Client-side routing
+- **Zustand** ^5.0.6 - Modern state management library
 - **Vite** - Build tool and development server
 - **ESLint** - Code linting and quality
 - **JavaScript (ES6+)** - Programming language
@@ -120,6 +133,28 @@ alx-fe-reactjs/
 │   ├── package.json
 │   └── README.md
 │
+├── recipe-sharing-app/          # Advanced recipe sharing platform
+│   ├── src/
+│   │   ├── components/
+│   │   │   ├── AddRecipeForm.jsx
+│   │   │   ├── DeleteRecipeButton.jsx
+│   │   │   ├── EditRecipeForm.jsx
+│   │   │   ├── FavoriteButton.jsx
+│   │   │   ├── FavoritesList.jsx
+│   │   │   ├── RecipeDetails.jsx
+│   │   │   ├── RecipeList.jsx
+│   │   │   ├── RecommendationsList.jsx
+│   │   │   ├── SearchBar.jsx
+│   │   │   └── recipeStore.js     # Zustand state management
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── vite.config.js
+│   ├── package.json
+│   └── README.md
+│
 ├── README.md                     # This file
 └── LICENSE
 ```
@@ -153,6 +188,15 @@ alx-fe-reactjs/
 - Form handling and validation
 - Responsive web design principles
 
+### Project 5: recipe-sharing-app
+- Advanced state management with Zustand
+- Building complete CRUD applications
+- Implementing advanced search and filtering
+- Creating personalized user experiences
+- Managing complex application state
+- Building recommendation algorithms
+- Professional UI/UX design patterns
+
 ## 🚀 Available Scripts
 
 Each project supports the following scripts:
@@ -176,8 +220,11 @@ Each project supports the following scripts:
 - ✅ Inline CSS Styling and useState Hooks
 - ✅ Context API Implementation
 - ✅ React Router and Multi-page Applications
-- 🔄 Advanced React Patterns (In Progress)
-- ⏳ Testing and Deployment (Upcoming)
+- ✅ Advanced State Management with Zustand
+- ✅ CRUD Operations and Search Functionality
+- ✅ User Favorites and Recommendation Systems
+- 🔄 Testing and Deployment (In Progress)
+- ⏳ Advanced React Patterns (Upcoming)
 
 ## 📞 Contact
 
