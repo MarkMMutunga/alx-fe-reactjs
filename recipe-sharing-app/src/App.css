@@ -2,7 +2,33 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
+  text-align: left;
+}
+
+.App {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.App nav {
+  margin-bottom: 30px;
   text-align: center;
+}
+
+.App nav a {
+  text-decoration: none;
+  color: #333;
+}
+
+.App nav h1 {
+  color: #007bff;
+  margin: 0;
+  padding: 10px 0;
+}
+
+.App nav h1:hover {
+  color: #0056b3;
 }
 
 .logo {
