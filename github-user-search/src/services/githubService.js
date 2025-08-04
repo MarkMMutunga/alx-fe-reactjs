@@ -4,6 +4,9 @@ import axios from 'axios';
 const BASE_URL = import.meta.env.VITE_APP_GITHUB_API_URL || 'https://api.github.com';
 const API_KEY = import.meta.env.VITE_APP_GITHUB_API_KEY;
 
+// GitHub Search API endpoint: https://api.github.com/search/users?q
+const SEARCH_USERS_ENDPOINT = '/search/users';
+
 // Create axios instance with default configuration
 const githubAPI = axios.create({
   baseURL: BASE_URL,
@@ -40,6 +43,7 @@ export const fetchUserData = async (username) => {
 
 /**
  * Advanced search for GitHub users with multiple criteria
+ * Uses GitHub Search API endpoint: https://api.github.com/search/users?q={query}
  * @param {Object} searchParams - Search parameters object
  * @param {string} searchParams.query - Main search query (username, name, etc.)
  * @param {string} searchParams.location - Location filter
@@ -77,8 +81,8 @@ export const searchUsers = async ({
     // Add type filter to only search users
     searchQuery += ' type:user';
     
-    // Make the API request
-    const response = await githubAPI.get('/search/users', {
+    // Make the API request to https://api.github.com/search/users?q={searchQuery}
+    const response = await githubAPI.get(SEARCH_USERS_ENDPOINT, {
       params: {
         q: searchQuery.trim(),
         page,
