@@ -15,6 +15,29 @@ const githubAPI = axios.create({
   }
 });
 
+/**
+ * Fetch user data from GitHub API based on username
+ * @param {string} username - The username to search for
+ * @returns {Promise} - Promise resolving to user data
+ */
+export const fetchUserData = async (username) => {
+  try {
+    const response = await githubAPI.get(`/users/${username}`);
+    return response.data;
+  } catch (error) {
+    console.error('Error fetching user data:', error);
+    
+    // Handle different error types
+    if (error.response?.status === 404) {
+      throw new Error('User not found');
+    } else if (error.response?.status === 403) {
+      throw new Error('API rate limit exceeded');
+    } else {
+      throw new Error('Failed to fetch user data');
+    }
+  }
+};
+
 // Service functions for GitHub API calls
 export const githubService = {
   /**
@@ -38,13 +61,7 @@ export const githubService = {
    * @returns {Promise} - Promise resolving to user data
    */
   getUser: async (username) => {
-    try {
-      const response = await githubAPI.get(`/users/${username}`);
-      return response.data;
-    } catch (error) {
-      console.error('Error fetching user:', error);
-      throw error;
-    }
+    return fetchUserData(username);
   },
 
   /**
