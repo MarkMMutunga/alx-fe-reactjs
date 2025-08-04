@@ -38,22 +38,91 @@ export const fetchUserData = async (username) => {
   }
 };
 
+/**
+ * Advanced search for GitHub users with multiple criteria
+ * @param {Object} searchParams - Search parameters object
+ * @param {string} searchParams.query - Main search query (username, name, etc.)
+ * @param {string} searchParams.location - Location filter
+ * @param {number} searchParams.minRepos - Minimum repository count
+ * @param {number} searchParams.page - Page number for pagination (default: 1)
+ * @param {number} searchParams.perPage - Results per page (default: 10, max: 100)
+ * @returns {Promise} - Promise resolving to search results
+ */
+export const searchUsers = async ({ 
+  query = '', 
+  location = '', 
+  minRepos = 0, 
+  page = 1, 
+  perPage = 10 
+}) => {
+  try {
+    // Build the search query string
+    let searchQuery = '';
+    
+    // Add main query (username, name, email)
+    if (query.trim()) {
+      searchQuery += query.trim();
+    }
+    
+    // Add location filter
+    if (location.trim()) {
+      searchQuery += ` location:${location.trim()}`;
+    }
+    
+    // Add minimum repositories filter
+    if (minRepos > 0) {
+      searchQuery += ` repos:>=${minRepos}`;
+    }
+    
+    // Add type filter to only search users
+    searchQuery += ' type:user';
+    
+    // Make the API request
+    const response = await githubAPI.get('/search/users', {
+      params: {
+        q: searchQuery.trim(),
+        page,
+        per_page: Math.min(perPage, 100) // GitHub API max is 100
+      }
+    });
+    
+    return {
+      users: response.data.items,
+      totalCount: response.data.total_count,
+      hasNextPage: response.data.items.length === perPage,
+      currentPage: page
+    };
+  } catch (error) {
+    console.error('Error searching users:', error);
+    
+    // Handle different error types
+    if (error.response?.status === 403) {
+      throw new Error('API rate limit exceeded. Please try again later.');
+    } else if (error.response?.status === 422) {
+      throw new Error('Invalid search query. Please check your search criteria.');
+    } else {
+      throw new Error('Failed to search users. Please try again.');
+    }
+  }
+};
+
 // Service functions for GitHub API calls
 export const githubService = {
   /**
-   * Search for GitHub users
+   * Search for GitHub users (legacy method - kept for compatibility)
    * @param {string} username - The username to search for
    * @returns {Promise} - Promise resolving to user search results
    */
   searchUsers: async (username) => {
-    try {
-      const response = await githubAPI.get(`/search/users?q=${encodeURIComponent(username)}`);
-      return response.data;
-    } catch (error) {
-      console.error('Error searching users:', error);
-      throw error;
-    }
+    return searchUsers({ query: username });
   },
+
+  /**
+   * Advanced search for GitHub users
+   * @param {Object} searchParams - Search parameters
+   * @returns {Promise} - Promise resolving to search results
+   */
+  advancedSearch: searchUsers,
 
   /**
    * Get a specific GitHub user
