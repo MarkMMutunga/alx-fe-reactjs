@@ -46,11 +46,22 @@ A comprehensive collection of React projects developed as part of the ALX Softwa
 - Smart recommendation algorithm based on user preferences
 - Professional UI with responsive design
 
+### 6. tailwind-react-integration
+**Tailwind CSS Integration and Responsive Design**
+- Modern React application with Tailwind CSS setup
+- Utility-first CSS framework implementation
+- Responsive UserProfile component with breakpoint-specific styling
+- Interactive hover effects and smooth animations
+- Advanced transitions and visual feedback
+- Mobile-first responsive design approach
+- Professional component styling with Tailwind utilities
+
 ## 🛠️ Technologies Used
 
 - **React** ^18.2.0 / ^19.1.0 - Frontend framework
 - **React Router DOM** ^6.8.1 / ^7.7.0 - Client-side routing
 - **Zustand** ^5.0.6 - Modern state management library
+- **Tailwind CSS** ^4.0.0 - Utility-first CSS framework
 - **Vite** - Build tool and development server
 - **ESLint** - Code linting and quality
 - **JavaScript (ES6+)** - Programming language
@@ -155,6 +166,19 @@ alx-fe-reactjs/
 │   ├── package.json
 │   └── README.md
 │
+├── tailwind-react-integration/   # Tailwind CSS integration project
+│   ├── src/
+│   │   ├── components/
+│   │   │   └── UserProfile.jsx    # Interactive responsive component
+│   │   ├── App.jsx
+│   │   ├── App.css
+│   │   ├── index.css             # Tailwind CSS imports
+│   │   └── main.jsx
+│   ├── index.html
+│   ├── vite.config.js            # Tailwind CSS Vite plugin config
+│   ├── package.json
+│   └── README.md
+│
 ├── README.md                     # This file
 └── LICENSE
 ```
@@ -197,6 +221,15 @@ alx-fe-reactjs/
 - Building recommendation algorithms
 - Professional UI/UX design patterns
 
+### Project 6: tailwind-react-integration
+- Setting up Tailwind CSS with Vite and React
+- Understanding utility-first CSS methodology
+- Implementing responsive design with breakpoint-specific classes
+- Creating interactive hover effects and animations
+- Building smooth transitions with duration and easing
+- Mobile-first responsive design approach
+- Advanced component styling with Tailwind utilities
+
 ## 🚀 Available Scripts
 
 Each project supports the following scripts:
@@ -220,6 +253,8 @@ Each project supports the following scripts:
 - ✅ Inline CSS Styling and useState Hooks
 - ✅ Context API Implementation
 - ✅ React Router and Multi-page Applications
+- ✅ Advanced State Management with Zustand
+- ✅ Tailwind CSS Integration and Responsive Design
 - ✅ Advanced State Management with Zustand
 - ✅ CRUD Operations and Search Functionality
 - ✅ User Favorites and Recommendation Systems
