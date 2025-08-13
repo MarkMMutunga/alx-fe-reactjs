@@ -1,51 +1,13 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import recipesData from '../data.json';
 
 const HomePage = () => {
   const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
-    // Mock recipe data
-    const mockRecipes = [
-      {
-        "id": 1,
-        "title": "Spaghetti Carbonara",
-        "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-        "image": "https://via.placeholder.com/300x200/FFB6C1/000000?text=Spaghetti+Carbonara"
-      },
-      {
-        "id": 2,
-        "title": "Chicken Tikka Masala",
-        "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-        "image": "https://via.placeholder.com/300x200/FFA07A/000000?text=Chicken+Tikka"
-      },
-      {
-        "id": 3,
-        "title": "Beef Tacos",
-        "summary": "Delicious Mexican-style tacos with seasoned ground beef, fresh vegetables, and tangy salsa.",
-        "image": "https://via.placeholder.com/300x200/98FB98/000000?text=Beef+Tacos"
-      },
-      {
-        "id": 4,
-        "title": "Caesar Salad",
-        "summary": "Fresh romaine lettuce with parmesan cheese, croutons, and classic Caesar dressing.",
-        "image": "https://via.placeholder.com/300x200/F0E68C/000000?text=Caesar+Salad"
-      },
-      {
-        "id": 5,
-        "title": "Chocolate Chip Cookies",
-        "summary": "Soft and chewy homemade cookies loaded with chocolate chips.",
-        "image": "https://via.placeholder.com/300x200/DDA0DD/000000?text=Chocolate+Cookies"
-      },
-      {
-        "id": 6,
-        "title": "Grilled Salmon",
-        "summary": "Fresh salmon fillet grilled to perfection with herbs and lemon.",
-        "image": "https://via.placeholder.com/300x200/F4A460/000000?text=Grilled+Salmon"
-      }
-    ];
-    
-    setRecipes(mockRecipes);
+    // Load recipe data from imported JSON file
+    setRecipes(recipesData);
   }, []);
 
   return (
