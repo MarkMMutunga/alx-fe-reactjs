@@ -1,29 +1,46 @@
 import React, { useState } from 'react';
 
 const RegistrationForm = () => {
-  // State for form fields using controlled components
-  const [formData, setFormData] = useState({
-    username: '',
-    email: '',
-    password: ''
-  });
+  // State for form fields using controlled components - individual state variables
+  const [username, setUsername] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
 
   // State for validation errors
   const [errors, setErrors] = useState({});
 
-  // Handle input changes
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData(prevState => ({
-      ...prevState,
-      [name]: value
-    }));
-
-    // Clear specific error when user starts typing
-    if (errors[name]) {
+  // Handle input changes for username
+  const handleUsernameChange = (e) => {
+    setUsername(e.target.value);
+    // Clear username error when user starts typing
+    if (errors.username) {
       setErrors(prevErrors => ({
         ...prevErrors,
-        [name]: ''
+        username: ''
+      }));
+    }
+  };
+
+  // Handle input changes for email
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+    // Clear email error when user starts typing
+    if (errors.email) {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        email: ''
+      }));
+    }
+  };
+
+  // Handle input changes for password
+  const handlePasswordChange = (e) => {
+    setPassword(e.target.value);
+    // Clear password error when user starts typing
+    if (errors.password) {
+      setErrors(prevErrors => ({
+        ...prevErrors,
+        password: ''
       }));
     }
   };
@@ -33,21 +50,21 @@ const RegistrationForm = () => {
     const newErrors = {};
 
     // Check if username is empty
-    if (!formData.username.trim()) {
+    if (!username.trim()) {
       newErrors.username = 'Username is required';
     }
 
     // Check if email is empty and valid
-    if (!formData.email.trim()) {
+    if (!email.trim()) {
       newErrors.email = 'Email is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
     // Check if password is empty
-    if (!formData.password.trim()) {
+    if (!password.trim()) {
       newErrors.password = 'Password is required';
-    } else if (formData.password.length < 6) {
+    } else if (password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters long';
     }
 
@@ -69,15 +86,14 @@ const RegistrationForm = () => {
     setErrors({});
 
     // Mock API call - simulate user registration
+    const formData = { username, email, password };
     console.log('Form submitted with controlled components:', formData);
     alert('Registration successful! (Mock API call)');
     
     // Reset form after successful submission
-    setFormData({
-      username: '',
-      email: '',
-      password: ''
-    });
+    setUsername('');
+    setEmail('');
+    setPassword('');
   };
 
   return (
@@ -92,8 +108,8 @@ const RegistrationForm = () => {
             type="text"
             id="username"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={username}
+            onChange={handleUsernameChange}
             style={{
               width: '100%',
               padding: '8px',
@@ -114,8 +130,8 @@ const RegistrationForm = () => {
             type="email"
             id="email"
             name="email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={handleEmailChange}
             style={{
               width: '100%',
               padding: '8px',
@@ -136,8 +152,8 @@ const RegistrationForm = () => {
             type="password"
             id="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={password}
+            onChange={handlePasswordChange}
             style={{
               width: '100%',
               padding: '8px',
