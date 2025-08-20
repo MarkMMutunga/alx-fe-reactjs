@@ -55,14 +55,14 @@ const RegistrationForm = () => {
     }
 
     // Check if email is empty and valid
-    if (!email.trim()) {
+    if (!email) {
       newErrors.email = 'Email is required';
     } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
       newErrors.email = 'Please enter a valid email address';
     }
 
     // Check if password is empty
-    if (!password.trim()) {
+    if (!password) {
       newErrors.password = 'Password is required';
     } else if (password.length < 6) {
       newErrors.password = 'Password must be at least 6 characters long';
