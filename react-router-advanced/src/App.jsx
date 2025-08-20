@@ -7,11 +7,11 @@ import ProtectedRoute from './components/ProtectedRoute';
 // Pages
 import Home from './pages/Home';
 import About from './pages/About';
-import Profile from './pages/Profile';
 import Blog from './pages/Blog';
 import Login from './pages/Login';
 
 // Components
+import Profile from './components/Profile';
 import ProfileDetails from './components/ProfileDetails';
 import ProfileSettings from './components/ProfileSettings';
 import BlogPost from './components/BlogPost';
