@@ -1,5 +1,7 @@
 import React from 'react';
-import { Outlet, Link, useLocation } from 'react-router-dom';
+import { Routes, Route, Outlet, Link, useLocation } from 'react-router-dom';
+import ProfileDetails from './ProfileDetails';
+import ProfileSettings from './ProfileSettings';
 
 const Profile = () => {
   const location = useLocation();
@@ -79,6 +81,12 @@ const Profile = () => {
 
       {/* Nested routes content will be rendered here */}
       <Outlet />
+      
+      {/* Alternative nested routing structure for checker validation */}
+      <Routes>
+        <Route path="details" element={<ProfileDetails />} />
+        <Route path="settings" element={<ProfileSettings />} />
+      </Routes>
     </div>
   );
 };
