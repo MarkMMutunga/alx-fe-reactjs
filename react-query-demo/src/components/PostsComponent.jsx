@@ -25,6 +25,8 @@ const PostsComponent = () => {
     queryFn: fetchPosts,
     staleTime: 5 * 60 * 1000, // 5 minutes - data is fresh for 5 minutes
     cacheTime: 10 * 60 * 1000, // 10 minutes - cache persists for 10 minutes
+    refetchOnWindowFocus: false, // Don't refetch when window regains focus
+    keepPreviousData: true, // Keep previous data while fetching new data
   });
 
   // Handle loading state
