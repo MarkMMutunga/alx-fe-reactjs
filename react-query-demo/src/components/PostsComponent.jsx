@@ -16,6 +16,7 @@ const PostsComponent = () => {
     data: posts,
     isLoading,
     error,
+    isError,
     refetch,
     isFetching,
     dataUpdatedAt
@@ -37,11 +38,11 @@ const PostsComponent = () => {
   }
 
   // Handle error state
-  if (error) {
+  if (isError) {
     return (
       <div style={{ textAlign: 'center', padding: '20px', color: 'red' }}>
         <h2>Error Loading Posts</h2>
-        <p>Error: {error.message}</p>
+        <p>Error: {error?.message || 'Something went wrong'}</p>
         <button 
           onClick={() => refetch()}
           style={{
